@@ -1,15 +1,15 @@
-import createSecondHalf from "./createSecondHalf";
+import createSecondHalf from "./createSecondRound";
 import { Rounds } from "./types";
 import shuffle from "easy-shuffle";
 
 /**
  * Genereates a Round-Robin schedule.
  * @param array Array of teams or elements to schedule.
- * @param repeat If true, it will generate a second half of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
+ * @param secondRound If true, it will generate a second round of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
  * @returns An array with every created round.
  */
 
-const roundrobin = <T>(array: (T | null)[], repeat?: boolean): Rounds<T> => {
+const roundrobin = <T>(array: (T | null)[], secondRound?: boolean): Rounds<T> => {
   const rounds: Rounds<T> = [];
   let elementsNumber = array.length;
 
@@ -47,7 +47,7 @@ const roundrobin = <T>(array: (T | null)[], repeat?: boolean): Rounds<T> => {
   const shuffledRounds = shuffle(rounds); //randomize the order of the rounds to prevent many matches away or home.
 
   // create the second half
-  if (repeat) {
+  if (secondRound) {
     const secondHalf = createSecondHalf(shuffledRounds);
     shuffledRounds.push(...secondHalf);
   }

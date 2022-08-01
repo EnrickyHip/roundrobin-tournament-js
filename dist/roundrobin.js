@@ -3,15 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const createSecondHalf_1 = __importDefault(require("./createSecondHalf"));
+const createSecondRound_1 = __importDefault(require("./createSecondRound"));
 const easy_shuffle_1 = __importDefault(require("easy-shuffle"));
 /**
  * Genereates a Round-Robin schedule.
  * @param array Array of teams or elements to schedule.
- * @param repeat If true, it will generate a second half of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
+ * @param secondRound If true, it will generate a second half of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
  * @returns An array with every created round.
  */
-const roundrobin = (array, repeat) => {
+const roundrobin = (array, secondRound) => {
     const rounds = [];
     let elementsNumber = array.length;
     // this allow the creation of rounds with odd number of teams
@@ -41,8 +41,8 @@ const roundrobin = (array, repeat) => {
     }
     const shuffledRounds = (0, easy_shuffle_1.default)(rounds); //randomize the order of the rounds to prevent many matches away or home.
     // create the second half
-    if (repeat) {
-        const secondHalf = (0, createSecondHalf_1.default)(shuffledRounds);
+    if (secondRound) {
+        const secondHalf = (0, createSecondRound_1.default)(shuffledRounds);
         shuffledRounds.push(...secondHalf);
     }
     return shuffledRounds;
