@@ -1,5 +1,5 @@
 # Round Robin Tournament
-Easily schuedule tournaments using Round Robin algorithm. A Round Robin algorithm creates a "all-play-all" tournament, where every team plays against each other, usually in two rounds (where each one is the home team once), or sometimes just on rounds. Round Robin Tournament does it automatically for you.
+Easily schuedule tournaments using Round Robin algorithm. A Round Robin algorithm creates an "all-play-all" tournament, where every team plays against each other. (usually in two rounds, where each one is the home team once). Round Robin Tournament makes it automatically for you.
 
 ## Installation
 
