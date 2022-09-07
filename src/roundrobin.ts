@@ -10,6 +10,7 @@ import shuffle from "easy-shuffle";
  */
 
 const roundrobin = <T>(array: (T | null)[], secondRound?: boolean): Rounds<T> => {
+  array = shuffle(array);
   const rounds: Rounds<T> = [];
   let elementsNumber = array.length;
 
