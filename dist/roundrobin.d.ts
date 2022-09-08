@@ -1,6 +1,6 @@
 import { Rounds } from "./types";
 /**
- * Genereates a Round-Robin schedule.
+ * Genereates a Round Robin schedule.
  * @param array Array of teams or elements to schedule.
  * @param secondRound If true, it will generate a second round of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
  * @returns An array with every created round.

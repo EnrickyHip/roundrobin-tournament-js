@@ -3,7 +3,7 @@ import { Rounds } from "./types";
 import shuffle from "easy-shuffle";
 
 /**
- * Genereates a Round-Robin schedule.
+ * Genereates a Round Robin schedule.
  * @param array Array of teams or elements to schedule.
  * @param secondRound If true, it will generate a second round of the same matches generated, but with reversed home. It will be included in the returned array of rounds.
  * @returns An array with every created round.
@@ -25,7 +25,6 @@ const roundrobin = <T>(array: (T | null)[], secondRound?: boolean): Rounds<T> =>
 
     for (let i = 0; i < elementsNumber / 2; i++) {
       const other = elementsNumber - i - 1;
-
       const team1 = array[i];
       const team2 = array[other];
 
@@ -45,7 +44,7 @@ const roundrobin = <T>(array: (T | null)[], secondRound?: boolean): Rounds<T> =>
     }
   }
 
-  const shuffledRounds = shuffle(rounds); //randomize the order of the rounds to prevent many matches away or home.
+  const shuffledRounds = shuffle(shuffle(rounds)); //randomize the order of the rounds to prevent many matches away or home.
 
   // create the second half
   if (secondRound) {
